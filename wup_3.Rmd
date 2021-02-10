@@ -48,7 +48,24 @@ favstats(alcohol~Seat,data=davisdata)
 People that sit in the back drink 3 times more than the those that sit in the middle.   
 
 ## Inferential Tests
+# Inferential
+
+```{r}
+model1 <- aov(alcohol~Seat,data=davisdata)
+summary.aov(model1)
+```
+We reject the null hypothesis because the p value is so small that it is unlikely that alcohol consumption in all three seats are the same.
+
+
+## When significant follow up with TukeyHSD  
+
+```{r}
+plot(TukeyHSD(model1))
+```
+
+The TukeyHSD plot shows that the people in the back drink a lot more than the people in the front. The plot shows those that those who sit in the middle drink less than the people in the back. The middle-front shows there is no evidence of difference in the average alcohol consumption.  
 
 ## Conclusions
 
+There is a difference. People who sit in the back of the class are more likely to consume alcohol than those who sit in the middle and front.
 
